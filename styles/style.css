@@ -39,6 +39,7 @@ header {
     color: #3d3d3d70;
     font-size: 3rem;
     line-height: 4rem;
+    opacity: 0;
 }
 
 section {

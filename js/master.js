@@ -1,12 +1,25 @@
-window.onload = function () {
-    getRandomQuote();
-    onQuillClick();
-    onSocialClick();
-    setupTime();
-}; 
+let quote;
+const quotesList = [
+    {
+        text: "Life is like riding a bicycle. To keep your balance you must keep moving.",
+        author: "Alber Einstein"
+    },
+    {
+        text: "First they ignore you, then they laugh at you, then they fight you, then you win.",
+        author: "Mahatma Gandhi"
+    },
+    {
+        text: "Everyone you meet is fighting a battle you know nothing about. Be kind. Always.",
+        author: "Brad Meltzer"
+    },
+    {
+        text: "Plan your work for today and every day, then work your plan.",
+        author: "Margaret Thatcher"
+    }
+]
 
 function getRandomQuote() {
-    var randomIdx = Math.floor(Math.random() * quotesList.length);
+    const randomIdx = Math.floor(Math.random() * quotesList.length);
     quote = quotesList[randomIdx];
     document.querySelector('.quote').innerHTML = quote.text;
     document.querySelector('.author').innerHTML = quote.author;
@@ -28,10 +41,12 @@ function onSocialClick() {
 }
 
 function setupTime() {
-    var hours = -1
-    var minutes = -1
+    let hours = -1
+    let minutes = -1
     setInterval(function () {
-        var date = new Date();
+        const date = new Date();
+        const timeElem = document.querySelector('.time');
+        if (!timeElem.style.opacity) timeElem.style.opacity = "1";
         if (date.getMinutes() !== minutes) {
             minutes = date.getMinutes();
             document.querySelector('.min').innerHTML = minutes < 10 ? '0'+minutes : minutes;
@@ -43,23 +58,9 @@ function setupTime() {
     }, 1000);
 }
 
-var quote;
-var quotesList = [
-    {
-        text: "Life is like riding a bicycle. To keep your balance you must keep moving.",
-        author: "Alber Einstein"
-    },
-    {
-        text: "First they ignore you, then they laugh at you, then they fight you, then you win.",
-        author: "Mahatma Gandhi"
-    },
-    {
-        text: "Everyone you meet is fighting a battle you know nothing about. Be kind. Always.",
-        author: "Brad Meltzer"
-    },
-    {
-        text: "Plan your work for today and every day, then work your plan.",
-        author: "Margaret Thatcher"
-    }
-]
-
+window.onload = function () {
+    getRandomQuote();
+    onQuillClick();
+    onSocialClick();
+    setupTime();
+}; 
