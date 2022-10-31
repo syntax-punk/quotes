@@ -2,7 +2,7 @@ let quote;
 const quotesList = [
     {
         text: "Life is like riding a bicycle. To keep your balance you must keep moving.",
-        author: "Alber Einstein"
+        author: "Albert Einstein"
     },
     {
         text: "First they ignore you, then they laugh at you, then they fight you, then you win.",
